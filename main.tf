@@ -3,7 +3,7 @@ provider "aws" {
   access_key = ""
   secret_key = ""
 }
-// Create EC2 instance
+
 resource "aws_instance" "EC2-Instance" {
   availability_zone      = "eu-north-1a"
   ami                    = "ami-0989fb15ce71ba39e"
@@ -11,7 +11,7 @@ resource "aws_instance" "EC2-Instance" {
   key_name               = "kuzma"
   vpc_security_group_ids = [aws_security_group.DefaultTerraformSG.id]
 
-  // Create main disk
+ 
   ebs_block_device {
     device_name = "/dev/sda1"
     volume_size = 15
@@ -30,7 +30,7 @@ resource "aws_instance" "EC2-Instance" {
   }
 }
 
-// Create security group
+
 resource "aws_security_group" "DefaultTerraformSG" {
   name        = "DefaultTerraformSG3"
   description = "Allow 22, 80, 443 inbound traffic"
@@ -66,7 +66,7 @@ resource "aws_security_group" "DefaultTerraformSG" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-// Create EC2 instance
+
 resource "aws_instance" "EC2-Instance2" {
   availability_zone      = "eu-north-1a"
   ami                    = "ami-0989fb15ce71ba39e"
@@ -74,7 +74,7 @@ resource "aws_instance" "EC2-Instance2" {
   key_name               = "kuzma"
   vpc_security_group_ids = [aws_security_group.DefaultTerraformSG.id]
 
-  // Create main disk
+
   ebs_block_device {
     device_name = "/dev/sda1"
     volume_size = 15
@@ -93,7 +93,7 @@ resource "aws_instance" "EC2-Instance2" {
   }
 }
 
-// Create security group
+
 resource "aws_security_group" "DefaultTerraformSG4" {
   name        = "DefaultTerraformSG4"
   description = "Allow 22, 80, 443 inbound traffic"
